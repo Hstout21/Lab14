@@ -1,0 +1,17 @@
+# Created by: Hunter Stout
+# This Makefile will allow you to run tests for my_int class
+CFLAGS = -Wall -std=c++11
+CC = g++
+
+a.out: main.o my_int.o
+	$(CC) $(CFLAGS) my_int.o main.o
+
+my_int.o: my_int.cc my_int.h
+	$(CC) -c $(CFLAGS) my_int.cc
+
+main.o: main.cc my_int.h
+	$(CC) -c $(CFLAGS) main.cc
+
+# list any file you want deleted with the command
+# make clean
+clean: rm –f my_int.o main.o a.out
